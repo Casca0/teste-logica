@@ -14,5 +14,15 @@ const products = [
 ]
 
 module.exports = () => {
-	// Seu código vai aqui!
+	const orderedObject = {};
+
+	products.forEach((product) => {
+		const [color, size] = product.split('-');
+
+		orderedObject[color] = orderedObject[color] || {};
+
+		orderedObject[color][size] = (orderedObject[color][size] || 0) + 1;
+	});
+
+	return orderedObject;
 }
